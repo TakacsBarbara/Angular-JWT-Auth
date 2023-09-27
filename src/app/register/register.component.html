@@ -1,1 +1,39 @@
-<p>register works!</p>
+<div class="register-container">
+    <mat-card class="register-card">
+        <h2>Regisztráció</h2>
+        <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <mat-form-field class="full-width">
+            <mat-label>Név</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Email cím</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Jelszó</mat-label>
+            <input matInput type="password" formControlName="password">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Jelszó újra</mat-label>
+            <input matInput type="confirm_password" formControlName="confirm_password">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Telefonszám</mat-label>
+            <input matInput formControlName="phone_umber">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Cím</mat-label>
+            <input matInput formControlName="address">
+        </mat-form-field>
+        <mat-form-field class="full-width">
+            <mat-label>Pozíció</mat-label>
+            <input matInput formControlName="position">
+        </mat-form-field>
+        <div class="button-container">
+            <button mat-raised-button color="primary" type="submit">Regisztráció</button>
+        </div>
+        </form>
+    </mat-card>
+</div>
+  
