@@ -1,13 +1,5 @@
-<mat-toolbar color="primary">
-  <span>JWT Auth</span>
-  <span class="spacer"></span>
-  <div class="button-container">
-    <button mat-button routerLink="/register">Regisztráció</button>
-    <button mat-button routerLink="/login">Belépés</button>
-    <!-- <button mat-button *ngIf="isLoggedIn" (click)="logout()">Kilépés</button> -->
-  </div>
-</mat-toolbar>
+<app-nav></app-nav>
 
-<div class="app-container">
+<main class="app-container">
   <router-outlet></router-outlet>
-</div>
+</main>

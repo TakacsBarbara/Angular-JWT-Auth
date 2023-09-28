@@ -1,0 +1,16 @@
+<nav>
+    <mat-toolbar color="primary">
+        <span>
+            <a routerLink="/">JWT Auth App</a>
+        </span>
+        <span class="spacer"></span>
+        <div class="button-container" *ngIf="!authenticated">
+            <button mat-button routerLink="/register">Regisztráció</button>
+            <button mat-button routerLink="/login">Belépés</button>
+        </div>
+
+        <div class="button-container" *ngIf="authenticated">
+            <button mat-button routerLink="/login" (click)="logout()">Kilépés</button>
+        </div>
+    </mat-toolbar>
+</nav>

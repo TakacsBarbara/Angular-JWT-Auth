@@ -13,7 +13,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { LogoutComponent } from './logout/logout.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    LogoutComponent
+    NavComponent
   ],
   imports: [
     BrowserModule,
@@ -35,11 +35,9 @@ import { LogoutComponent } from './logout/logout.component';
     MatCardModule,
     MatToolbarModule,
     RouterModule.forRoot([
-      { path: '', component: LoginComponent },
-      { path: 'home', component: HomeComponent },
+      { path: '', component: HomeComponent },
       { path: 'login', component: LoginComponent },
       { path: 'register', component: RegisterComponent },
-      { path: 'logout', component: LogoutComponent },
       { path: '**', redirectTo: '' }
     ])
   ],
