@@ -6,10 +6,16 @@
 
 .button-container {
     display: flex;
-    gap: 10px;
+    gap: 5px;
 }
 
 a {
     text-decoration: none;
     color: white;
+}
+
+@media screen and (min-width: 550px) {
+    .button-container {
+        gap: 10px;
+    }
 }

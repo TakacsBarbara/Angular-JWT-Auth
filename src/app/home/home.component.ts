@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Emitters } from '../emitters/emitters';
 
@@ -9,15 +9,31 @@ import { Emitters } from '../emitters/emitters';
 })
 export class HomeComponent implements OnInit {
   message = '';
+  datas: any = {
+    email: '',
+    phone_number: '',
+    address: '',
+    position: ''
+  };
 
   constructor(
     private http: HttpClient
   ) {}
 
   ngOnInit(): void {
-    this.http.get('http://localhost:5000/api/me', {withCredentials: true}).subscribe({
+    const token = localStorage.getItem('jwt');
+
+    const httpOptions = {
+      withCredentials: true,
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+    this.http.get('http://127.0.0.1:8000/api/me', httpOptions).subscribe({
       next: (res: any) => {
-        this.message = `Hello, ${res.name}`;
+        this.message = `Üdv, ${res.user.name}!`;
+        this.datas = res.user;
         Emitters.authEmitter.emit(true);
       },
       error: (err: any) => {

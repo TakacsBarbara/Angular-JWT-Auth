@@ -1,3 +1,10 @@
-<div class="mat-card">
-    <h1>{{message}}</h1>
+<div class="mat-card formed-card">
+    <h1>{{ message }}</h1>
+    <div *ngIf="datas.email" class="data-container mat-card-centered">
+        <h2>Felhasználói adatok</h2>
+        <h4>Email cím: {{ datas.email }}</h4>
+        <h4>Telefonszám: {{ datas.phone_number }}</h4>
+        <h4>Lakcím: {{ datas.address }}</h4>
+        <h4>Pozíció: {{ datas.position }}</h4>
+    </div>
 </div>

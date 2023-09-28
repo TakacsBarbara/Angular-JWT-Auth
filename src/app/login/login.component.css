@@ -7,10 +7,10 @@
 }
 
 .login-card {
-    width: 500px;
+    width: 300px;
     padding: 20px;
     text-align: center;
-    }
+}
 
 .full-width {
     width: 100%;
@@ -18,4 +18,10 @@
 
 .button-container {
     margin-top: 20px;
+}
+
+@media screen and (min-width: 550px) {
+    .login-card {
+        width: 500px;
+    }
 }

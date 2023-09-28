@@ -23,6 +23,11 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
-    this.http.post('http://localhost:5000/api/login', this.loginForm.getRawValue(), {withCredentials: true}).subscribe( () => this.router.navigate(['/']))
+    this.http.post('http://127.0.0.1:8000/api/login', this.loginForm.getRawValue(), {withCredentials: true}).subscribe( 
+      (res: any) => {
+        const token = res.token;
+        localStorage.setItem('jwt', token);
+        this.router.navigate(['/']);
+      })
   }
 }

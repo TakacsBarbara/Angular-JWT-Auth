@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { passwordMatchValidator, passwordIsCorrect } from './../validators/password-validator';
 
 @Component({
   selector: 'app-register',
@@ -24,10 +25,12 @@ export class RegisterComponent {
       phone_number: '',
       address: '',
       position: '',
+    }, {
+      validators: [passwordIsCorrect(), passwordMatchValidator()]
     });
   }
 
   onSubmit(): void {
-    this.http.post('http://localhost:5000/api/register', this.registerForm.getRawValue()).subscribe(() => this.router.navigate(['/login']));
+    this.http.post('http://127.0.0.1:8000/api/register', this.registerForm.getRawValue()).subscribe(() => this.router.navigate(['/login']));
   }
 }

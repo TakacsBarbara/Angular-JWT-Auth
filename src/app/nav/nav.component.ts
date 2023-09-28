@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Emitters } from '../emitters/emitters';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-nav',
@@ -21,7 +21,19 @@ export class NavComponent implements OnInit {
   }
 
   logout(): void {
-    this.http.post('http://localhost:5000/api/logout', {}, {withCredentials: true})
-    .subscribe( () => this.authenticated = false);
+    const token = localStorage.getItem('jwt');
+
+    const httpOptions = {
+      withCredentials: true,
+      headers: new HttpHeaders({
+        'Authorization': `Bearer ${token}`
+      })
+    };
+
+    this.http.post('http://127.0.0.1:8000/api/logout', {}, httpOptions)
+    .subscribe( () => {
+      localStorage.removeItem('jwt');
+      this.authenticated = false;
+    });
   }
 }
